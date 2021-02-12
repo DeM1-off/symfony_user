@@ -1,4 +1,4 @@
-# Simple-blog-in-symfony-4
+Symfony-4
 
  Installation process
  
