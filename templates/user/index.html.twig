@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+<style>
+    .btn {
+        padding: 5px !important;
+    }
+</style>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12">
+                <a href="{{ path('user_new') }}" class="btn btn-primary">Create new</a>
+                <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">date birth</th>
+                    <th scope="col">Number/Balance</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                <tr>
+                    <th scope="row">{{ user.id }}</th>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.datebirth ? user.datebirth|date('Y-m-d') : '' }}</td>
+                    <td>  {% for posts in phone %}
+                            {% if user.id == posts.userid %}
+                                <p> <span>+{{ posts.telephone }}</span>
+                                    <span title="Пополнить баланс" class=" btn btn-outline-success" >{{ posts.balance }} грн</span>
+                                </p>
+                        {% endif %}
+                            {% endfor %}
+                        <button type="button" class="btn btn-success">Добавить номер</button>
+                    </td>
+                    <td><button type="button" class="btn btn-info"> <a  href="{{ path("show_post", {'url':  user.id }) }}">Read More</a></button>
+                        {{ include('user/_delete_form.html.twig') }}
+
+
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <hr class="my-4">
+            <p class="lead">
+
+            </p>
+        </div>
+    </div>
+
+{% endblock %}

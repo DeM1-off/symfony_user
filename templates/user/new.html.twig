@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Posts{% endblock %}
+
+{% block main_container %}
+    <div class="col-md-12 my-5">
+        <h1>Create new Posts</h1>
+
+        {{ include('user/_form.html.twig') }}
+
+        <a href="{{ path('user') }}">back to list</a>
+    </div>
+{% endblock %}
+

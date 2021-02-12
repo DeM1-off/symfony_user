@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block main_container %}
+    <div class="col-md-12 my-5">
+        <button type="button" class="btn btn-success"><a href="/">Назад</a></button>
+        <h1 class="display-3">{{ users.name }}</h1>
+        <hr>
+        <h6>{{ users.datebirth ? users.datebirth|date('Y-m-d') : '' }}</h6>
+
+        <hr>
+        Numbers:
+        {% for posts in phone %}
+            <p> <span>+{{ posts.telephone }}</span>
+                <span title="Пополнить баланс" class=" btn btn-outline-success" >{{ posts.balance }} грн</span>
+            </p>
+        {% else %}
+            Not assigned
+        {% endfor %}
+
+
+
+    </div>
+{% endblock %}
