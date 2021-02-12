@@ -15,7 +15,7 @@ class AppFixtures extends Fixture
         $operator = [50,67,63,68];
 
         $faker = Factory::create('uk_UA');
-        for ($i = 0; $i <= 20; $i++) {
+        for ($i = 0; $i <= 200; $i++) {
             $randOperator = rand(0,3);
             $countryNumber = 380 .$operator[$randOperator].rand(1000000,9999999);
 
